@@ -82,7 +82,7 @@ alert_condition_map = {
     'KubeletDown': '.Values.prometheusOperator.kubeletService.enabled',  # there are more alerts which are left enabled, because they'll never fire without metrics
     'PrometheusOperatorDown': '.Values.prometheusOperator.enabled',
     'NodeExporterDown': '.Values.nodeExporter.enabled',
-    'CoreDNSDown': '.Values.kubeDns.enabled',
+    'CoreDNSDown': 'or .Values.kubeDns.enabled .Values.coreDns.enabled',
     'AlertmanagerDown': '.Values.alertmanager.enabled',
 }
 

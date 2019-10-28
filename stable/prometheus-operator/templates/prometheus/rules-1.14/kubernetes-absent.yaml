@@ -35,7 +35,7 @@ spec:
       labels:
         severity: critical
 {{- end }}
-{{- if .Values.kubeDns.enabled }}
+{{- if or .Values.kubeDns.enabled .Values.coreDns.enabled }}
     - alert: CoreDNSDown
       annotations:
         message: CoreDNS has disappeared from Prometheus target discovery.
